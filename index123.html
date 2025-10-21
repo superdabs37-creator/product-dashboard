@@ -5,73 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product Sales Dashboard</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f7f9fb;
-      color: #2f3640;
-    }
+   body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    color: #1e293b;
+  }
 
-    h1 {
-      text-align: center;
-      color: #273c75;
+  h1 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    color: #1d4ed8;
+    border-left: 5px solid #3b82f6;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* Section Cards */
+  section {
+    background: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+
+  section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.2);
+  }
+
+  /* Inputs & Buttons */
+  input, select {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    width: calc(50% - 16px);
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s ease;
+  }
+
+  input:focus, select:focus {
+    border-color: #3b82f6;
+  }
+
+  button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #2563eb;
+    transform: scale(1.05);
+  }
+
+  button.delete-btn {
+    background-color: #ef4444;
+  }
+
+  button.delete-btn:hover {
+    background-color: #dc2626;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  th {
+    background-color: #3b82f6;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8fafc;
+  }
+
+  tr:hover {
+    background-color: #e0f2fe;
+  }
+
+  /* Analytics Section Styling */
+  #analyticsTable td:nth-child(1) {
+    font-weight: bold;
+    color: #1d4ed8;
+  }
+
+  #analyticsTable td:nth-child(4) {
+    font-weight: bold;
+    color: #047857;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    input, select {
+      width: 100%;
+      margin-bottom: 10px;
     }
 
     section {
-      background: #ffffff;
       padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
     }
 
-    input, select, button {
-      padding: 8px;
-      margin: 5px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+    h1 {
+      font-size: 1.8rem;
     }
-
-    button {
-      background: #44bd32;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #2ecc71;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-
-    th, td {
-      padding: 10px;
-      text-align: center;
-      border: 1px solid #ddd;
-    }
-
-    th {
-      background: #40739e;
-      color: white;
-    }
-
-    .delete-btn {
-      background: #e84118;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-
-    .delete-btn:hover {
-      background: #c23616;
-    }
+  }
   </style>
 </head>
 <body>
